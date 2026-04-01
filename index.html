@@ -92,9 +92,13 @@
 </footer>
 
 <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz02RQ6Jr3roZt-TCnw_EwBqI-dK7KUzJ7Wn8ZuEkW_glfMqC3MuYxbnMwwn29s0fUbng/exec";
+    // 1. ضعي رابط السكريبت الخاص بك هنا
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyc0IjkEvDhZ42XHZO9qwYZsE7Y86vQ-sYXKyZb7JvazAu1yrpc7JFzh48r3oJvAOEU9A/exec";
     
-    let teachers = ["أسماء بنت خلفان الغنبوصي", "أفراح بنت ناصر الغنبوصي", "آمنة بنت ناصر الغنبوصي", "بدرية بنت راشد الغنبوصي", "بدور بنت ناصر الغيلاني", "تهانى بنت ناصر الغنبوصى", "جميلة بنت سالم الزرعي", "خديجة بنت صالح الغنبوصي", "راية بنت على الغنبوصي", "راية بنت محمد الغنبوصي", "رحاب بنت سالم الغنبوصي", "رحمة بنت حمد الروتلي", "رحمة بنت سعيد الحربي", "رحمة بنت ناجم الغنبوصي", "سارة بنت سالم الغنبوصي", "سارة بنت صالح البلوشية", "سالمة بنت خميس الغنبوصية", "سعادة بنت عبدالله الكاسبية", "سكينة بنت جمعة الغيلاني", "سليمة بنت سالم الغزالي", "سليمة بنت عبدالله الغنبوصى", "شغيلة بنت سعيد العلوي", "شهد بنت محمد الحربي", "شيخة بنت صالح الغنبوصي", "شيخة بنت على الغنبوصي", "شيخة بنت مسلم الحربي", "شيماء بنت ناصر الغنبوصى", "طاهرة بنت ناصر الغنبوصي", "عائشة بنت سعيد الغزالية", "عشيبة بنت مسعود الكاسبي", "غالية بنت علي الساعدي", "فاطمة بنت ناصر الغنبوصي", "مآثر بنت محمد الغنبوصي", "مروة بنت راشد الغنبوصي", "مريم بنت سالم الغيلاني", "مريم بنت سالم الغنبوصي", "مريم بنت علي الحربي", "مريم بنت مسلم الغنبوصي", "منال بنت سالم الغنبوصي", "موزة بنت سعيد الغنبوصي", "موزة بنت على الغنبوصي", "نافجة بنت سالم الستمي", "نصرى بنت صالح السنيدي", "نعيمة بنت مصبح الساعدي", "نوال بنت ناجم الغنبوصي", "هاجر بنت ربيع الغنبوصية", "هالة بنت خلفان الغنبوصية", "هدى بنت على الغنبوصية", "وفاء بنت عبدالله الغنبوصية", "يسرا بنت على الغنبوصية", "أبرار بنت خلفان الغنبوصية", "صالحة بنت سالم الغنبوصية", "هيام بنت صالح العريمية", "هدى بنت محمد الغنبوصية", "هيام بنت حمد الغنبوصية", "وداد بنت عبدالله الغنبوصية", "وضحى بنت ماجد الغنبوصية"];
+    // القائمة الأساسية
+    const originalTeachers = ["أسماء بنت خلفان الغنبوصي", "أفراح بنت ناصر الغنبوصي", "آمنة بنت ناصر الغنبوصي", "بدرية بنت راشد الغنبوصي", "بدور بنت ناصر الغيلاني", "تهانى بنت ناصر الغنبوصى", "جميلة بنت سالم الزرعي", "خديجة بنت صالح الغنبوصي", "راية بنت على الغنبوصي", "راية بنت محمد الغنبوصي", "رحاب بنت سالم الغنبوصي", "رحمة بنت حمد الروتلي", "رحمة بنت سعيد الحربي", "رحمة بنت ناجم الغنبوصي", "سارة بنت سالم الغنبوصي", "سارة بنت صالح البلوشية", "سالمة بنت خميس الغنبوصية", "سعادة بنت عبدالله الكاسبية", "سكينة بنت جمعة الغيلاني", "سليمة بنت سالم الغزالي", "سليمة بنت عبدالله الغنبوصى", "شغيلة بنت سعيد العلوي", "شهد بنت محمد الحربي", "شيخة بنت صالح الغنبوصي", "شيخة بنت على الغنبوصي", "شيخة بنت مسلم الحربي", "شيماء بنت ناصر الغنبوصى", "طاهرة بنت ناصر الغنبوصي", "عائشة بنت سعيد الغزالية", "عشيبة بنت مسعود الكاسبي", "غالية بنت علي الساعدي", "فاطمة بنت ناصر الغنبوصي", "مآثر بنت محمد الغنبوصي", "مروة بنت راشد الغنبوصي", "مريم بنت سالم الغيلاني", "مريم بنت سالم الغنبوصي", "مريم بنت علي الحربي", "مريم بنت مسلم الغنبوصي", "منال بنت سالم الغنبوصي", "موزة بنت سعيد الغنبوصي", "موزة بنت على الغنبوصي", "نافجة بنت سالم الستمي", "نصرى بنت صالح السنيدي", "نعيمة بنت مصبح الساعدي", "نوال بنت ناجم الغنبوصي", "هاجر بنت rبيع الغنبوصية", "هالة بنت خلفان الغنبوصية", "هدى بنت على الغنبوصية", "وفاء بنت عبدالله الغنبوصية", "يسرا بنت على الغنبوصية", "أبرار بنت خلفان الغنبوصية", "صالحة بنت سالم الغنبوصية", "هيام بنت صالح العريمية", "هدى بنت محمد الغنبوصية", "هيام بنت حمد الغنبوصية", "وداد بنت عبدالله الغنبوصية", "وضحى بنت ماجد الغنبوصية"];
+    
+    let teachers = [...originalTeachers];
     let subjects = ["ديني قيمي", "اللغة العربية", "العلوم", "الرياضيات", "الدراسات الاجتماعية", "الفيزياء", "الكيمياء", "الاحياء", "اللغة الانجليزية", "تقنية المعلومات", "مهارات الموسيقية", "مهارات الحياتية", "الأدارة", "مجال ثاني علوم", "مجال ثاني رياضيات", "الفنون البصرية", "الرياضة البدنية"];
     let allBookings = [];
     let currentPeriod = null;
@@ -113,14 +117,22 @@
     async function fetchBookings() {
         try {
             const res = await fetch(`${SCRIPT_URL}?nocache=${Date.now()}`);
-            allBookings = await res.json();
+            const data = await res.json();
+            allBookings = data.bookings;
+            // دمج القائمة الأصلية مع الأسماء الجديدة المجلوبة من الشيت
+            teachers = [...new Set([...originalTeachers, ...data.addedTeachers])];
             renderGrid();
             renderReport();
-        } catch (e) { console.error("خطأ في الجلب"); }
+            updateSettingsLists();
+        } catch (e) { 
+            console.error("خطأ في جلب البيانات، سيتم عرض القائمة الافتراضية");
+            renderGrid(); 
+        }
     }
 
     function renderGrid() {
         const grid = document.getElementById('periodsGrid');
+        if(!grid) return;
         grid.innerHTML = '';
         const today = new Date().toISOString().split('T')[0];
         pNames.forEach((name, i) => {
@@ -136,9 +148,8 @@
 
     function openModal(p) {
         currentPeriod = p;
-        // تحديث القائمة قبل فتح المودال لضمان ظهور الأسماء الجديدة
-        document.getElementById('modalTeacherSelect').innerHTML = teachers.map(t => `<option value="${t}">${t}</option>`).join('');
-        document.getElementById('modalSubjectSelect').innerHTML = subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+        document.getElementById('modalTeacherSelect').innerHTML = teachers.map(t => `<option>${t}</option>`).join('');
+        document.getElementById('modalSubjectSelect').innerHTML = subjects.map(s => `<option>${s}</option>`).join('');
         document.getElementById('bookingModal').style.display = 'flex';
     }
 
@@ -148,67 +159,57 @@
         const teacher = document.getElementById('modalTeacherSelect').value;
         const subject = document.getElementById('modalSubjectSelect').value;
         const date = new Date().toISOString().split('T')[0];
-        
         allBookings.push({ date, period: currentPeriod, teacher, subject });
         renderGrid();
         closeModal();
-
-        const query = `?action=add&date=${date}&period=${currentPeriod}&teacher=${encodeURIComponent(teacher)}&subject=${encodeURIComponent(subject)}`;
-        
         try {
-            await fetch(SCRIPT_URL + query, { mode: 'no-cors' });
+            await fetch(`${SCRIPT_URL}?action=add&date=${date}&period=${currentPeriod}&teacher=${encodeURIComponent(teacher)}&subject=${encodeURIComponent(subject)}`, { mode: 'no-cors' });
             setTimeout(fetchBookings, 2000);
         } catch (e) { console.error("فشل الإرسال"); }
     }
 
-    // --- الدوال الجديدة لإدارة المعلمات ---
-    function addTeacher() {
-        const nameInput = document.getElementById('newTeacherName');
-        const name = nameInput.value.trim();
-        if (name === "") return alert("أدخلي اسم المعلمة");
-        if (teachers.includes(name)) return alert("الاسم موجود مسبقاً");
-
-        teachers.push(name);
-        teachers.sort(); // ترتيب أبجدي
-        updateSettingsLists();
-        nameInput.value = "";
-        alert("تمت الإضافة بنجاح");
+    async function addTeacher() {
+        const input = document.getElementById('newTeacherName');
+        const name = input.value.trim();
+        if(!name) return;
+        input.value = "جاري الحفظ...";
+        try {
+            await fetch(`${SCRIPT_URL}?action=addTeacher&name=${encodeURIComponent(name)}`, { mode: 'no-cors' });
+            setTimeout(fetchBookings, 1500);
+            input.value = "";
+        } catch (e) { alert("خطأ"); input.value = ""; }
     }
 
-    function removeTeacher() {
-        const select = document.getElementById('deleteTeacherSelect');
-        const name = select.value;
-        if (!name) return;
-
-        if (confirm(`حذف المعلمة: ${name}؟`)) {
-            teachers = teachers.filter(t => t !== name);
-            updateSettingsLists();
-            alert("تم الحذف");
-        }
+    async function removeTeacher() {
+        const name = document.getElementById('deleteTeacherSelect').value;
+        if(originalTeachers.includes(name)) return alert("لا يمكن حذف الأسماء الأساسية");
+        try {
+            await fetch(`${SCRIPT_URL}?action=deleteTeacher&name=${encodeURIComponent(name)}`, { mode: 'no-cors' });
+            setTimeout(fetchBookings, 1500);
+        } catch (e) { alert("خطأ"); }
     }
 
     function updateSettingsLists() {
-        const options = teachers.map(t => `<option value="${t}">${t}</option>`).join('');
-        document.getElementById('deleteTeacherSelect').innerHTML = options;
+        const select = document.getElementById('deleteTeacherSelect');
+        if(select) select.innerHTML = teachers.map(t => `<option>${t}</option>`).join('');
     }
-    // ----------------------------------
 
     function renderReport() {
         const searchInput = document.getElementById('searchDate').value;
         const tbody = document.getElementById('reportTableBody');
+        if(!tbody || !searchInput) return;
         tbody.innerHTML = '';
-        if(!searchInput) return;
         const filtered = allBookings.filter(b => String(b.date).trim() === String(searchInput).trim());
-        if (filtered.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="3" style="color:red;">لا توجد حجوزات لهذا التاريخ</td></tr>';
-            return;
-        }
         filtered.sort((a, b) => a.period - b.period).forEach(b => {
             tbody.innerHTML += `<tr><td>الحصة ${pNames[parseInt(b.period)-1]}</td><td>${b.teacher}</td><td>${b.subject}</td></tr>`;
         });
     }
 
-    window.onload = fetchBookings;
+    // تشغيل العرض الأولي فوراً ثم جلب البيانات المحدثة
+    window.onload = () => {
+        renderGrid();
+        fetchBookings();
+    };
 </script>
 </body>
 </html>
